@@ -1,3 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -6,6 +14,7 @@ body {
     flex-direction: column;
     font-family: Arial, sans-serif;
     color: white;
+    font-size: 16px;
 }
 
 .main {
@@ -13,36 +22,82 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .container {
     text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 28px;
+    margin: 0 0 30px 0;
+    word-wrap: break-word;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
 }
 
 input {
-    padding: 10px;
-    width: 250px;
+    padding: 12px 15px;
+    width: 100%;
+    max-width: 300px;
     border-radius: 5px;
     border: none;
+    font-size: 16px;
 }
 
 button {
-    padding: 10px 15px;
+    padding: 12px 25px;
     border: none;
     border-radius: 5px;
     background-color: #202127;
     color: white;
     cursor: pointer;
+    font-size: 16px;
+    min-height: 44px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #2a2b32;
 }
 
+button:active {
+    transform: scale(0.98);
+}
+
+.result-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #202127;
+    border-radius: 5px;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+.result-box p {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+}
+
+.copy-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
 .footer {
     border-top: 1px solid #3a3b42;
     text-align: center;
-    padding: 18px 0;
+    padding: 18px 15px;
     font-size: 14px;
     color: #a9a9b3;
     background-color: #202127;
@@ -50,20 +105,72 @@ button:hover {
 
 .footer p {
     margin: 4px 0;
+    word-wrap: break-word;
 }
 
 .sfot {
     text-decoration: none;
     color: white;
+    transition: color 0.3s ease;
+}
+
+.sfot:hover {
+    color: #00BFFF;
 }
 
 .shortened-link {
     color: #00BFFF;
     text-decoration: none;
-    font-weight: bold; 
+    font-weight: bold;
+    word-break: break-all;
+    display: inline-block;
+    max-width: 100%;
+    transition: color 0.3s ease;
 }
 
 .shortened-link:hover {
-    color: #FFFFFF; 
-    text-decoration: underline; 
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    input {
+        padding: 12px 15px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .copy-button-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .copy-button-container button {
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main {
+        padding: 60px 20px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    input {
+        padding: 12px 15px;
+        width: 100%;
+        max-width: 500px;
+    }
 }

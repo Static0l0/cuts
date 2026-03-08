@@ -1,4 +1,5 @@
 {
 "builds": [{ "src": "mbin.py", "use": "@vercel/python"}], 
-"routes": [{ "src": "/(.*)", "dest": "main.py" }]
+"routes": [{ "src": "/(.*)", "dest": "url.py" }]
 }
+

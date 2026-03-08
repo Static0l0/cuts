@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuts URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h1>cuts url shortener</h1>
+            <form method="POST" action="{{ url_for('shorten_url') }}">
+                <input type="text" name="original_url" placeholder="enter original url here" required>
+                <button type="submit">shorten</button>
+            </form>
+
+            {% if short_url %}
+                <div class="result-box" style="margin-top: 20px;">
+                    <p>Your shortened URL is ready:</p>
+                    <a href="{{ short_url }}" target="_blank" class="shortened-link">{{ short_url }}</a>
+                    
+                    <button onclick="copyToClipboard()" style="margin-left: 10px; cursor: pointer;">Copy</button>
+                </div>
+            {% endif %}
+            
+        </div>
+    </div>
+    <footer class="footer">
+        <p>made by <a class="sfot" href="https://github.com/Static0l0">Hazel Vincenzel</a></p>
+        <p>Copyright © 2026 Hazel Vincenzel</p>
+    </footer>
+
+    <script>
+        function copyToClipboard() {
+            // Grab the URL from the link element
+            var copyText = document.querySelector(".shortened-link").href;
+            
+            // Copy it to the user's clipboard
+            navigator.clipboard.writeText(copyText).then(function() {
+                alert("Copied to clipboard!"); // Optional: tells the user it worked
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

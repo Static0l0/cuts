@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuts URL Shortener</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
@@ -15,11 +16,12 @@
             </form>
 
             {% if short_url %}
-                <div class="result-box" style="margin-top: 20px;">
+                <div class="result-box">
                     <p>Your shortened URL is ready:</p>
                     <a href="{{ short_url }}" target="_blank" class="shortened-link">{{ short_url }}</a>
-                    
-                    <button onclick="copyToClipboard()" style="margin-left: 10px; cursor: pointer;">Copy</button>
+                    <div class="copy-button-container">
+                        <button onclick="copyToClipboard()" type="button">Copy</button>
+                    </div>
                 </div>
             {% endif %}
             
@@ -32,12 +34,10 @@
 
     <script>
         function copyToClipboard() {
-            // Grab the URL from the link element
             var copyText = document.querySelector(".shortened-link").href;
             
-            // Copy it to the user's clipboard
             navigator.clipboard.writeText(copyText).then(function() {
-                alert("Copied to clipboard!"); // Optional: tells the user it worked
+                alert("Copied to clipboard!");
             }).catch(function(err) {
                 console.error('Failed to copy: ', err);
             });
